@@ -7,19 +7,37 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var emailTextfield: UITextField!
+    @IBOutlet weak var passwordTextfield: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        print("Hola")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func iniciarSessionTapped(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailTextfield.text!, password: passwordTextfield.text!) { (user, error) in
+            print("Intentamos iniciar sesión")
+            if error != nil {
+                print("Tenemos el siguiente error\(String(describing: error))")
+                Auth.auth().createUser(withEmail: self.emailTextfield.text!, password: self.passwordTextfield.text!) { (user, error) in
+                    print("Intentamos crear un usuario")
+                    if error != nil {
+                        print("Tenemos el siguiente error\(String(describing: error))")
+                    }else{
+                        print("El usuario fue creado exitosamente")
+                        self.performSegue(withIdentifier: "iniciarSesionSegue", sender: nil)
+                    }
+                }
+            }else{
+                print("Inicio de sesión exitoso")
+                self.performSegue(withIdentifier: "iniciarSesionSegue", sender: nil)
+            }
+        }
     }
-
-
 }
 
