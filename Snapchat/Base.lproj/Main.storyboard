@@ -163,16 +163,31 @@
             </objects>
             <point key="canvasLocation" x="2487" y="18"/>
         </scene>
-        <!--View Controller-->
+        <!--Elegir Usuario View Controller-->
         <scene sceneID="bCR-Ql-U3v">
             <objects>
-                <viewController id="BNz-28-mEs" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BNz-28-mEs" customClass="ElegirUsuarioViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VkG-EJ-C3j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JnW-yG-Ufl">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UIh-9o-Yk9" firstAttribute="bottom" secondItem="JnW-yG-Ufl" secondAttribute="bottom" id="05a-fs-tm8"/>
+                            <constraint firstItem="UIh-9o-Yk9" firstAttribute="trailing" secondItem="JnW-yG-Ufl" secondAttribute="trailing" id="AJt-xL-6cm"/>
+                            <constraint firstItem="JnW-yG-Ufl" firstAttribute="top" secondItem="UIh-9o-Yk9" secondAttribute="top" id="CYD-fE-Zqc"/>
+                            <constraint firstItem="JnW-yG-Ufl" firstAttribute="leading" secondItem="UIh-9o-Yk9" secondAttribute="leading" id="gxI-45-PES"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UIh-9o-Yk9"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="JnW-yG-Ufl" id="4BR-HE-2GQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JD1-Rm-5JF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

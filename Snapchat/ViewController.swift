@@ -35,6 +35,7 @@ class ViewController: UIViewController {
                 }
             }else{
                 print("Inicio de sesión exitoso")
+                Database.database().reference().child("usuarios").child(user!.uid).child("email").setValue(user!.email)
                 self.performSegue(withIdentifier: "iniciarSesionSegue", sender: nil)
             }
         }
