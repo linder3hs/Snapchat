@@ -81,7 +81,19 @@
                     <view key="view" contentMode="scaleToFill" id="7v8-24-1Ph">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qsG-AH-cM1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qsG-AH-cM1" firstAttribute="leading" secondItem="0JJ-pz-cxR" secondAttribute="leading" id="3py-f9-csW"/>
+                            <constraint firstItem="0JJ-pz-cxR" firstAttribute="trailing" secondItem="qsG-AH-cM1" secondAttribute="trailing" id="9Xg-gn-oMs"/>
+                            <constraint firstItem="qsG-AH-cM1" firstAttribute="top" secondItem="0JJ-pz-cxR" secondAttribute="top" id="L1K-5h-T3O"/>
+                            <constraint firstItem="0JJ-pz-cxR" firstAttribute="bottom" secondItem="qsG-AH-cM1" secondAttribute="bottom" id="lW2-RN-paH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0JJ-pz-cxR"/>
                     </view>
                     <navigationItem key="navigationItem" id="gFe-XI-WX2">
@@ -96,10 +108,54 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="qsG-AH-cM1" id="6o0-r2-3mb"/>
+                        <segue destination="6jq-64-pMs" kind="show" identifier="versnapsegue" id="V6D-X8-HCK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wC-fx-g5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1745" y="18"/>
+        </scene>
+        <!--Ver Snap View Controller-->
+        <scene sceneID="vmz-w3-gxZ">
+            <objects>
+                <viewController id="6jq-64-pMs" customClass="VerSnapViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CIU-Ln-LDM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AV-cX-TCr">
+                                <rect key="frame" x="5" y="74" width="365" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-A6-gW1">
+                                <rect key="frame" x="10" y="105" width="355" height="552"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mhp-A6-gW1" firstAttribute="top" secondItem="6AV-cX-TCr" secondAttribute="bottom" constant="10" id="90G-Af-p5R"/>
+                            <constraint firstItem="AEx-P5-wIG" firstAttribute="bottom" secondItem="Mhp-A6-gW1" secondAttribute="bottom" constant="10" id="AUX-kN-J2q"/>
+                            <constraint firstItem="6AV-cX-TCr" firstAttribute="centerX" secondItem="CIU-Ln-LDM" secondAttribute="centerX" id="GGC-Bg-wXb"/>
+                            <constraint firstItem="Mhp-A6-gW1" firstAttribute="leading" secondItem="AEx-P5-wIG" secondAttribute="leading" constant="10" id="GGy-S4-di7"/>
+                            <constraint firstItem="6AV-cX-TCr" firstAttribute="top" secondItem="AEx-P5-wIG" secondAttribute="top" constant="10" id="QaQ-xK-hTI"/>
+                            <constraint firstItem="AEx-P5-wIG" firstAttribute="trailing" secondItem="6AV-cX-TCr" secondAttribute="trailing" constant="5" id="Tda-8B-TAt"/>
+                            <constraint firstItem="6AV-cX-TCr" firstAttribute="leading" secondItem="AEx-P5-wIG" secondAttribute="leading" constant="5" id="Zb0-QX-bKz"/>
+                            <constraint firstItem="AEx-P5-wIG" firstAttribute="trailing" secondItem="Mhp-A6-gW1" secondAttribute="trailing" constant="10" id="d6W-78-qp2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AEx-P5-wIG"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Mhp-A6-gW1" id="Kjd-l9-Nrz"/>
+                        <outlet property="label" destination="6AV-cX-TCr" id="Icu-ik-paK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fSv-Jb-eUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="805"/>
         </scene>
         <!--Imagen View Controller-->
         <scene sceneID="19r-XJ-tTe">
