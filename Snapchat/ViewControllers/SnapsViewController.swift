@@ -16,6 +16,7 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyBoardWhenTap()
         tableView.dataSource = self
         tableView.delegate = self
         Database.database().reference().child("usuarios")
@@ -67,6 +68,7 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Next...")
         if segue.identifier == "versnapsegue" {
             let siguienteVC = segue.destination as! VerSnapViewController
             siguienteVC.snap = sender as! Snap
@@ -77,4 +79,16 @@ class SnapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension UIViewController {
+    
+    func hideKeyBoardWhenTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SnapsViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

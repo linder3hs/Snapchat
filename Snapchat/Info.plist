@@ -6,6 +6,8 @@
 	<string>Snaps pide permisos de camara</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Snaps pide permisos para grabar :)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>

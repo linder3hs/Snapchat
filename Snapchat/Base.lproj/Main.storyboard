@@ -138,18 +138,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-A6-gW1">
-                                <rect key="frame" x="10" y="105" width="355" height="552"/>
+                                <rect key="frame" x="10" y="105" width="355" height="262"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQt-gX-XXv">
+                                <rect key="frame" x="149.5" y="395" width="76" height="30"/>
+                                <state key="normal" title="Reproducir"/>
+                                <connections>
+                                    <action selector="playAudio:" destination="6jq-64-pMs" eventType="touchUpInside" id="XVk-Va-4oL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Mhp-A6-gW1" firstAttribute="top" secondItem="6AV-cX-TCr" secondAttribute="bottom" constant="10" id="90G-Af-p5R"/>
-                            <constraint firstItem="AEx-P5-wIG" firstAttribute="bottom" secondItem="Mhp-A6-gW1" secondAttribute="bottom" constant="10" id="AUX-kN-J2q"/>
+                            <constraint firstItem="AEx-P5-wIG" firstAttribute="bottom" secondItem="Mhp-A6-gW1" secondAttribute="bottom" constant="300" id="AUX-kN-J2q"/>
                             <constraint firstItem="6AV-cX-TCr" firstAttribute="centerX" secondItem="CIU-Ln-LDM" secondAttribute="centerX" id="GGC-Bg-wXb"/>
                             <constraint firstItem="Mhp-A6-gW1" firstAttribute="leading" secondItem="AEx-P5-wIG" secondAttribute="leading" constant="10" id="GGy-S4-di7"/>
                             <constraint firstItem="6AV-cX-TCr" firstAttribute="top" secondItem="AEx-P5-wIG" secondAttribute="top" constant="10" id="QaQ-xK-hTI"/>
+                            <constraint firstItem="vQt-gX-XXv" firstAttribute="top" secondItem="Mhp-A6-gW1" secondAttribute="bottom" constant="28" id="QuG-hj-P6C"/>
                             <constraint firstItem="AEx-P5-wIG" firstAttribute="trailing" secondItem="6AV-cX-TCr" secondAttribute="trailing" constant="5" id="Tda-8B-TAt"/>
                             <constraint firstItem="6AV-cX-TCr" firstAttribute="leading" secondItem="AEx-P5-wIG" secondAttribute="leading" constant="5" id="Zb0-QX-bKz"/>
+                            <constraint firstItem="vQt-gX-XXv" firstAttribute="centerX" secondItem="CIU-Ln-LDM" secondAttribute="centerX" id="Ze8-pf-Std"/>
                             <constraint firstItem="AEx-P5-wIG" firstAttribute="trailing" secondItem="Mhp-A6-gW1" secondAttribute="trailing" constant="10" id="d6W-78-qp2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AEx-P5-wIG"/>
@@ -157,11 +166,12 @@
                     <connections>
                         <outlet property="imageView" destination="Mhp-A6-gW1" id="Kjd-l9-Nrz"/>
                         <outlet property="label" destination="6AV-cX-TCr" id="Icu-ik-paK"/>
+                        <outlet property="reproducirAudio" destination="vQt-gX-XXv" id="Z4o-3a-czd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSv-Jb-eUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1745" y="805"/>
+            <point key="canvasLocation" x="1744.8" y="804.64767616191909"/>
         </scene>
         <!--Imagen View Controller-->
         <scene sceneID="19r-XJ-tTe">
@@ -189,7 +199,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWM-jt-wDk">
-                                <rect key="frame" x="35" y="398" width="305" height="35"/>
+                                <rect key="frame" x="35" y="422" width="305" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="s5Z-Hs-WTf"/>
@@ -202,11 +212,20 @@
                                     <action selector="elegirContactoTapped:" destination="sfI-9s-Zzk" eventType="touchUpInside" id="abL-uY-dCX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pl-vl-9xb">
+                                <rect key="frame" x="163.5" y="384" width="47" height="30"/>
+                                <state key="normal" title="Grabar"/>
+                                <connections>
+                                    <action selector="grabarAudio:" destination="sfI-9s-Zzk" eventType="touchUpInside" id="yKV-JB-8sd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="UWM-jt-wDk" firstAttribute="top" secondItem="nWR-wt-Qog" secondAttribute="bottom" constant="26" id="61t-Zj-olp"/>
+                            <constraint firstItem="UWM-jt-wDk" firstAttribute="top" secondItem="nWR-wt-Qog" secondAttribute="bottom" constant="50" id="61t-Zj-olp"/>
+                            <constraint firstItem="6pl-vl-9xb" firstAttribute="centerX" secondItem="Tzx-C4-3r0" secondAttribute="centerX" id="KNT-j1-hCF"/>
                             <constraint firstItem="UWM-jt-wDk" firstAttribute="leading" secondItem="Srb-Jd-iDj" secondAttribute="leading" constant="35" id="M2o-vU-s9J"/>
+                            <constraint firstItem="6pl-vl-9xb" firstAttribute="top" secondItem="nWR-wt-Qog" secondAttribute="bottom" constant="12" id="NVt-SB-oMM"/>
                             <constraint firstItem="K4k-If-9J0" firstAttribute="top" secondItem="Srb-Jd-iDj" secondAttribute="top" constant="20" id="b6z-3Y-QF5"/>
                             <constraint firstItem="K4k-If-9J0" firstAttribute="centerX" secondItem="Tzx-C4-3r0" secondAttribute="centerX" id="bD4-6c-nn3"/>
                             <constraint firstItem="Srb-Jd-iDj" firstAttribute="trailing" secondItem="UWM-jt-wDk" secondAttribute="trailing" constant="35" id="dFw-KD-WcG"/>
@@ -226,6 +245,7 @@
                     <connections>
                         <outlet property="descripcionTextField" destination="nWR-wt-Qog" id="qq0-4M-Gdf"/>
                         <outlet property="elegirContactoBoton" destination="UWM-jt-wDk" id="dMT-bL-ubI"/>
+                        <outlet property="grabarAudio" destination="6pl-vl-9xb" id="aGu-M6-dnm"/>
                         <outlet property="imageView" destination="K4k-If-9J0" id="XKR-BS-oo9"/>
                         <segue destination="BNz-28-mEs" kind="show" identifier="seleccionarContactoSegue" id="tae-Kt-I4y"/>
                     </connections>
