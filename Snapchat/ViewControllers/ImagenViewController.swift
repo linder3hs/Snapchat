@@ -88,7 +88,7 @@ class ImagenViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func elegirContactoTapped(_ sender: Any) {
         elegirContactoBoton.isEnabled = false
         let imagesFolder = Storage.storage().reference().child("imagenes")
-        let imageData = UIImagePNGRepresentation(imageView.image!)
+        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.25)
         
         imagesFolder.child("\(imagenID).jpg").putData(imageData!, metadata: nil, completion: { ( metadata, error ) in
             print("Intentando subir la imagen")

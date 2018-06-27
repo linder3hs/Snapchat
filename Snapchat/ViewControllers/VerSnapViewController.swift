@@ -22,6 +22,8 @@ class VerSnapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         label.text? = snap.descrip
+        print("Audio below")
+        print(snap.audioURL)
         imageView.sd_setImage(with: URL(string: snap.imagenURL))
     }
     
@@ -31,15 +33,18 @@ class VerSnapViewController: UIViewController {
             let audioURL: URL = NSURL(string: snap.audioURL)! as URL
             try audioPlayer = AVAudioPlayer(contentsOf: audioURL)
             audioPlayer!.play()
+            print("TRY PLAY")
         } catch {}
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
+    /*override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         Database.database().reference().child("usuarios")
             .child(Auth.auth().currentUser!.uid).child("snaps").child(snap.id).removeValue()
         Storage.storage().reference().child("imagenes").child("\(snap.imagenID).jpg").delete{(error) in
             print("Se elemino la imagen correctamente")
         }
-    }
+    }*/
 }
